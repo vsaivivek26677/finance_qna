@@ -94,7 +94,7 @@ run` for the dashboard. No Docker.
 | Vector store | ChromaDB (local, persistent) |
 | Embeddings | `sentence-transformers/all-MiniLM-L6-v2` (local); a deterministic hashing backend for tests |
 | LLM | Groq free tier — `openai/gpt-oss-120b`, fallback `openai/gpt-oss-20b` |
-| RAG evaluation | a deterministic reference-based harness (not `ragas` — see §9) |
+| RAG evaluation | a deterministic reference-based harness (not `ragas` — see 9) |
 | ML | `scikit-learn` (`HistGradientBoostingClassifier` + isotonic calibration); `joblib` for the artifact; `pandas` reads the training CSV |
 | Dashboard | Streamlit + Plotly |
 | Tests | `pytest` (510, no network) |
