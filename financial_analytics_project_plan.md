@@ -5,7 +5,7 @@
 This document describes the system **as it was actually built**. It began as a
 forward-looking plan; that plan changed in several places during
 implementation, and the changes are recorded in
-[§9 Deviations from the original plan](#9-deviations-from-the-original-plan).
+[9 Deviations from the original plan](#9-deviations-from-the-original-plan).
 The [README](README.md) is the usage guide; this is the design rationale.
 
 ---
