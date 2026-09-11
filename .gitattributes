@@ -1,0 +1,10 @@
+# Normalise line endings: LF in the repo, native in the working tree.
+* text=auto eol=lf
+
+# Shell scripts must stay LF even on Windows checkouts.
+*.sh text eol=lf
+
+# Binary artifacts — never diff or convert.
+*.joblib binary
+*.db binary
+*.sqlite3 binary

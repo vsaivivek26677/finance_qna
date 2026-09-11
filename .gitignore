@@ -1,0 +1,32 @@
+# --- Secrets (never commit) ---
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# --- Project data / artifacts ---
+# data/financials.db, models/*.joblib and data/chroma/ ARE committed so a fresh
+# clone (and Streamlit Cloud) has data, the trained model and the retrieval
+# index without a rebuild. Only the re-fetchable caches are ignored.
+data/raw/
+data/reference/
+
+# --- OS / editors ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

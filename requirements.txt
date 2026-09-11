@@ -1,0 +1,43 @@
+# Financial Analytics Platform — runtime + test dependencies
+#
+# torch is pulled in transitively by sentence-transformers. The extra index lets
+# pip pick the CPU-only build on Linux (Streamlit Community Cloud), a fraction of
+# the size of the default CUDA bundle. Ignored on macOS / Windows.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Ingestion
+httpx>=0.27,<0.29
+pydantic>=2.7,<3
+pydantic-settings>=2.3,<3
+python-dotenv>=1.0
+SQLAlchemy>=2.0,<3
+pandas>=2.2
+numpy>=1.26,<3
+yfinance>=0.2.40
+tenacity>=8.3
+
+# Ratio engine uses pandas / numpy above.
+
+# RAG + LLM. chromadb is held to the major version that wrote the committed
+# index in data/chroma/ — a major bump can change the on-disk format.
+chromadb>=1.0,<2
+sentence-transformers>=3.0
+groq>=0.9
+# `ragas` is intentionally absent: every release pins pre-1.0 LangChain, which
+# cannot coexist with a modern install. Layer 3 scores itself against database
+# ground truth instead (src/rag/evaluation.py).
+
+# Distress prediction — scikit-learn brings scipy (ARFF parsing) and joblib.
+scikit-learn>=1.4,<2
+
+# API + dashboard
+fastapi>=0.111
+uvicorn[standard]>=0.30
+cachetools>=5.3
+streamlit>=1.36
+plotly>=5.22
+
+# Tests
+pytest>=8.2
+pytest-cov>=5.0
+respx>=0.21
