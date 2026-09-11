@@ -1,0 +1,39 @@
+# Candidate tickers for daily ingestion, one per line.
+# Lines starting with # are ignored. Edit freely - add or remove tickers.
+# The script skips anything already in the database automatically, and
+# skips anything that failed within the last 14 days (see ingest_state.json).
+
+# Technology
+MSFT ORCL CRM ADBE IBM INTC AMD QCOM TXN MU AVGO NOW SNOW PANW CRWD DDOG
+NET FTNT ANET ADI KLAC LRCX AMAT MRVL ON SWKS TER CDNS SNPS WDAY INTU ADP
+
+# Financials
+JPM BAC WFC C GS MS SCHW BLK AXP V MA PYPL COF USB PNC TFC BK STT
+TRV ALL AIG MET PRU CB AFL MMC AON
+
+# Healthcare
+JNJ PFE MRK ABT LLY BMY UNH CVS CI HUM ELV GILD REGN VRTX ISRG MDT
+SYK BSX ZTS DHR TMO A IDXX MRNA BIIB
+
+# Consumer discretionary
+AMZN TSLA HD LOW MCD SBUX NKE TGT BKNG EXPE ABNB CMG YUM DPZ ROST TJX
+GM F RCL CCL NCLH UAL DAL LUV ALK JBLU SAVE
+
+# Consumer staples
+WMT COST PG KO PEP CL KMB GIS KHC SYY MDLZ EL MNST STZ KDP
+
+# Industrials
+BA CAT DE HON GE MMM LMT RTX NOC GD UPS FDX UNP CSX NSC EMR ETN ITW
+ROK PH DOV CMI PCAR WM RSG
+
+# Energy
+XOM CVX COP SLB HAL OXY EOG DVN APA MPC PSX VLO WMB KMI
+
+# Materials
+LIN APD ECL SHW FCX NEM NUE DD ALB CE
+
+# Communication / media
+GOOGL META NFLX DIS CMCSA T VZ TMUS PARA WBD EA TTWO
+
+# Utilities / real estate
+NEE DUK SO D EXC AEP XEL ED PLD AMT EQIX PSA O SPG

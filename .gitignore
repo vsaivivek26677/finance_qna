@@ -24,6 +24,9 @@ htmlcov/
 data/raw/
 data/reference/
 
+# --- Daily ingestion script ---
+scripts/logs/
+
 # --- OS / editors ---
 .DS_Store
 Thumbs.db
