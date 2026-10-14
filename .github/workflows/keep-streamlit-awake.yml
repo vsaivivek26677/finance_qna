@@ -1,0 +1,41 @@
+name: Keep Streamlit app awake
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours (Community Cloud sleeps after 12 h idle)
+  workflow_dispatch:          # "Run workflow" button for manual tests
+
+jobs:
+  visit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install headless browser
+        run: pip install playwright && playwright install --with-deps chromium
+      - name: Open the app and wake it if it is asleep
+        env:
+          APP_URL: https://financeqna-dvbe9eewkqttvt3ofnrwdw.streamlit.app/
+        run: |
+          python - <<'PY'
+          import os
+          from playwright.sync_api import sync_playwright
+
+          url = os.environ["APP_URL"]
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page()
+              page.goto(url, timeout=120_000)
+              page.wait_for_timeout(15_000)
+              wake = page.get_by_role("button", name="Yes, get this app back up!")
+              if wake.count():
+                  wake.first.click()
+                  print("App was asleep: clicked the wake-up button")
+                  page.wait_for_timeout(90_000)   # give it time to boot
+              else:
+                  page.wait_for_timeout(30_000)   # hold a live session briefly
+              print("Visited", url, "| page title:", page.title())
+              browser.close()
+          PY
